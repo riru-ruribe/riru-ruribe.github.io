@@ -5,12 +5,134 @@
     <meta charset="UTF-8">
     <meta name='viewport' content='width=device-width'>
     <title>瑠璃辺りる</title>
+
+    <script>
+        window.addEventListener('load', (event) => {
+            document.getElementById('app').addEventListener('click', () => {
+                var c = document.getElementById('appContents');
+                var r = c.getBoundingClientRect();
+                window.scrollTo(0, r.top);
+            });
+            document.getElementById('article').addEventListener('click', () => {
+                var c = document.getElementById('articleContents');
+                var r = c.getBoundingClientRect();
+                window.scrollTo(0, r.top);
+            });
+        });
+    </script>
+
+    <style>
+        h1 {
+            font-weight: normal;
+            text-align: center;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background: transparent;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+        }
+
+        table tr {
+            border-bottom: solid 1px #eee;
+        }
+
+        table th,
+        table td {
+            text-align: center;
+            width: 25%;
+            padding: 30px 0;
+        }
+
+        table td.icon {
+            background-size: 64px;
+            background-position: left 5px center;
+            background-repeat: no-repeat;
+        }
+
+        table td.icon.slidebeats {
+            background-image: url(icon/app_slidebeats.png)
+        }
+
+        body {
+            display: flex;
+            flex-flow: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        span {
+            margin: 10px;
+        }
+
+        #cr {
+            font-weight: normal;
+            text-align: right;
+        }
+    </style>
 </head>
 
 <body>
-    <strong>Developer 瑠璃辺りる</strong><br><br>
+    <main>
+        <h1>Developer 瑠璃辺りる</h1>
+        <button id="app">リリース済アプリ一覧</button>
+        <span></span>
+        <button id="article">レビュー掲載記事一覧</button>
+        <hr>
 
-    <a href="https://riru-ruribe.github.io/SlideBeatsPrivacyPolicy.html">Privacy Policy</a>
+        <br><br><br>
+
+        <div id="appContents">
+            <h1>リリース済アプリ一覧</h1>
+            <hr>
+
+            <table>
+                <tr>
+                    <td>アプリ名</td>
+                    <td>プラットフォーム</td>
+                </tr>
+                <tr>
+                    <td class="icon slidebeats">SlideBeats</td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td><a href="https://apps.apple.com/app/slidebeats-simple-rhythm-game/id1645764506">iOS</a></td>
+                                <td><a href="https://play.google.com/store/apps/details?id=riru.ruribe.slidebeats.product">Android</a></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <br><br><br>
+
+        <div id="articleContents">
+            <h1>レビュー掲載記事一覧</h1>
+            <hr>
+
+            <table>
+                <tr>
+                    <td class="icon slidebeats">SlideBeats</td>
+                    <td><a href="https://app-liv.jp/5344796/">Appliv 様</a></td>
+                </tr>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <div id="cr">©2022 Riru Ruribe</div>
+    </footer>
 </body>
 
 </html>
